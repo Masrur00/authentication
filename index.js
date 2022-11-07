@@ -10,7 +10,7 @@ app.use(express.json());
 app.post('/register', register);
 app.post('/login', login);
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8085;
 app.listen(PORT, async () => {
     try {
         await connect();
