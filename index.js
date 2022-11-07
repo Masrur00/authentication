@@ -2,11 +2,14 @@ const express = require("express");
 const connect = require('./src/configs/db');
 require("dotenv").config();
 const { register, login } = require('./src/controllers/auth.controllers');
+var cors = require('cors')
 // const userController = require('./src/controllers')
 
 const app = express();
 app.use(express.json());
 
+
+app.use(cors())
 app.post('/register', register);
 app.post('/login', login);
 
