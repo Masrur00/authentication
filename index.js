@@ -10,11 +10,11 @@ app.use(express.json());
 app.post('/register', register);
 app.post('/login', login);
 
-const port = process.env.PORT;
-app.listen(8000, async () => {
+var PORT = process.env.PORT || 3000;
+app.listen(PORT, async () => {
     try {
         await connect();
-        console.log(`listening on port ${port}`)
+        console.log(`listening on port ${PORT}`)
     }
     catch (err) {
         console.log(err.message);
