@@ -21,7 +21,7 @@ const register = async (req, res) => {
         return res.status(200).send({user , token});    
         
     } catch (error) {
-        return res.status(400).send({ Error: error.message });
+        return res.status(400).send({ Errors: error.message });
     }
 }
 
