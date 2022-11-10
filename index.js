@@ -1,7 +1,7 @@
 const express = require("express");
 const connect = require('./src/configs/db');
 require("dotenv").config();
-const { register, login } = require('./src/controllers/auth.controllers');
+const { register, login, forgot, reset, updateData } = require('./src/controllers/auth.controllers');
 var cors = require('cors')
 // const userController = require('./src/controllers')
 
@@ -12,6 +12,10 @@ app.use(express.json());
 app.use(cors())
 app.post('/register', register);
 app.post('/login', login);
+app.post('/forgot', forgot);
+app.post('/reset/:id/:token', reset);
+app.patch('/update/:id/:token',updateData)
+
 
 const PORT = process.env.PORT || 8085;
 app.listen(PORT, async () => {
